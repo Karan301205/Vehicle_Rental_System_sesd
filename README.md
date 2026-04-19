@@ -8,7 +8,7 @@ WheelCheck is a production-oriented full-stack vehicle rental system built with:
 - Auth: `JWT`
 - Architecture: `Controller -> Service -> Repository`
 
-## Live hosted link: vehicle-rental-system-sesd-frontend.vercel.app
+## Live hosted link: https://vehicle-rental-system-sesd-frontend.vercel.app/
 
 ## Core Capabilities
 
