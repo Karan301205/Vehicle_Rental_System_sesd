@@ -1,31 +1,69 @@
-# WheelCheck 
+# WheelCheck
 
-> A robust, full-stack Vehicle Rental System designed with strict OOP principles and scalable system architecture.
+WheelCheck is a production-oriented full-stack vehicle rental system built with:
 
-## Project Overview
-**WheelCheck** is a vehicle rental platform that streamlines the process of booking cars and bikes. The system is engineered to demonstrate core **Software Engineering** concepts, focusing heavily on backend architecture, **Polymorphism** (handling different vehicle types), and **State Management** (handling complex booking lifecycles).
+- Frontend: `React + Vite + Tailwind CSS + Framer Motion`
+- Backend: `Node.js + Express`
+- Database: `PostgreSQL`
+- Auth: `JWT`
+- Architecture: `Controller -> Service -> Repository`
 
-## Design Documentation (Milestone 1)
-This repository contains the core system design documents submitted for the **SESD Project Milestone-1**:
+## Core Capabilities
 
-| Document | Description |
-| :--- | :--- |
-| **[Project Idea](./idea.md)** | Detailed scope, features, and RBAC breakdown. |
-| **[Use Case Diagram](./useCaseDiagram.md)** | Actor interactions and system boundaries (Admin vs. Customer). |
-| **[Class Diagram](./classDiagram.md)** | **(Core Scoring)** OOP structure, inheritance hierarchy, and design patterns. |
-| **[Sequence Diagram](./sequenceDiagram.md)** | End-to-end flow of a booking transaction (Happy Path). |
-| **[ER Diagram](./ErDiagram.md)** | Database schema, relationships, and polymorphic storage. |
+- RBAC for `ADMIN` and `CUSTOMER`
+- Abstract `Vehicle` model with `Car` and `Bike` inheritance
+- Booking lifecycle: `PENDING -> CONFIRMED -> ACTIVE -> COMPLETED / CANCELLED`
+- Dynamic pricing via strategy pattern
+- Admin fleet management and booking approval
+- Customer browsing, booking, and booking history
 
-## Tech Stack
-- **Frontend**: React.js, TailwindCSS
-- **Backend**: Node.js (Express) / Java (Spring Boot)
-- **Database**: PostgreSQL
-- **Architecture**: MVC with Repository Pattern
+## Project Docs
 
-## Key Features
-1. **Role-Based Access Control (RBAC)**: Secure separation between Admin (Fleet Mgmt) and Customer (Booking) dashboards.
-2. **Polymorphic Inventory**: `Car` and `Bike` classes inherit from a base `Vehicle` class but implement unique pricing logic.
-3. **Smart Booking Engine**: Prevents double-booking via transactional locking and status checks.
-4. **Dynamic Pricing Strategy**: Extensible pricing logic (Standard vs. Surge pricing) using the Strategy Pattern.
+- [Project Idea](./idea.md)
+- [Use Case Diagram](./useCaseDiagram.md)
+- [Class Diagram](./classDiagram.md)
+- [Sequence Diagram](./sequenceDiagram.md)
+- [ER Diagram](./ErDiagram.md)
+- [Step 1 - Analysis](./docs/step-1-analysis.md)
+- [Step 2 - Setup](./docs/step-2-setup.md)
+- [Step 3 - Backend](./docs/step-3-backend.md)
+- [Step 4 - Frontend](./docs/step-4-frontend.md)
+- [Step 5 - Integration](./docs/step-5-integration.md)
 
----
+## Local Development
+
+Run the app locally with seeded in-memory development data:
+
+```bash
+npm install
+npm run dev:local
+```
+
+Local URLs:
+
+- Frontend: `http://localhost:5173`
+- Backend: `http://localhost:4000`
+
+## Demo Credentials
+
+- Admin: `admin@wheelcheck.dev` / `secret123`
+- Customer: `customer@wheelcheck.dev` / `secret123`
+
+## Verification
+
+Run backend automated tests:
+
+```bash
+npm run test --workspace backend
+```
+
+Run frontend production build:
+
+```bash
+npm run build --workspace frontend
+```
+
+## Notes
+
+- Production deployments should use a real PostgreSQL database.
+- Local in-memory mode exists to make development and demo verification easy in environments where PostgreSQL is not installed.

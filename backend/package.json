@@ -1,0 +1,28 @@
+{
+  "name": "@wheelcheck/backend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "dev:memory": "USE_IN_MEMORY_DB=true SEED_IN_MEMORY_DB=true NODE_ENV=development PORT=4000 DATABASE_URL=postgresql://postgres:postgres@localhost:5432/wheelcheck JWT_SECRET=abcdefghijklmnop JWT_EXPIRES_IN=7d CLIENT_URL=http://localhost:5173 node --watch src/server.js",
+    "start": "node src/server.js",
+    "test": "NODE_ENV=test PORT=4000 DATABASE_URL=postgresql://postgres:postgres@localhost:5432/wheelcheck JWT_SECRET=abcdefghijklmnop JWT_EXPIRES_IN=7d CLIENT_URL=http://localhost:5173 USE_IN_MEMORY_DB=true node --test",
+    "seed:memory": "USE_IN_MEMORY_DB=true SEED_IN_MEMORY_DB=true NODE_ENV=development PORT=4000 DATABASE_URL=postgresql://postgres:postgres@localhost:5432/wheelcheck JWT_SECRET=abcdefghijklmnop JWT_EXPIRES_IN=7d CLIENT_URL=http://localhost:5173 node src/scripts/seed-memory.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "pg-mem": "^3.0.5",
+    "pg": "^8.16.0",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "supertest": "^7.1.1"
+  }
+}

@@ -1,0 +1,17 @@
+import { z } from "zod";
+
+export const registerSchema = z.object({
+  body: z.object({
+    email: z.string().email(),
+    password: z.string().min(8),
+    fullName: z.string().min(2),
+    licenseNumber: z.string().min(5).optional()
+  })
+});
+
+export const loginSchema = z.object({
+  body: z.object({
+    email: z.string().email(),
+    password: z.string().min(8)
+  })
+});
